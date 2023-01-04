@@ -1,12 +1,7 @@
-// Debugging
-
-console.log(randomColor());
-console.log(generateRandomColor(6));
-
 // Setting up a variables
 
 const boxes = document.querySelectorAll('.box');
-const span = document.querySelector('.rgbColor');
+const span = document.querySelector('#rgbColor');
 const colors = generateRandomColor(6);
 const pickedColor = colors[Math.floor(Math.random() * 6)];
 // const pickedColor = 5;
@@ -17,10 +12,32 @@ const boxCount = 6;
 const statusText = document.querySelector('.status');
 const colorPinkish = '#f88989';
 
+// Debugging
+
+console.log('Random color is:', randomColor());
+console.log('Lists of random colors : ', generateRandomColor(6));
+console.log('PlayButton is:', playButton);
+console.log('EasyButton is:', easyButton);
+console.log('HardButton is:', hardButton);
+console.log('Boxes are:', boxes);
+console.log('Span is:', span);
+console.log('Colors are: ', colors);
+console.log('Picked Color is: '.pickedColor);
+console.log('BoxCount is: ', boxCount);
+console.log('StatusText is: ', statusText);
+
 //
 
 statusText.textContent = "Let's play!";
-// span.textContent = pickedColor;
+span.textContent = pickedColor;
+
+function generateRandomColor(number) {
+	let colorArray = [];
+	for (i = 0; i < number; i++) {
+		colorArray.push(randomColor());
+	}
+	return colorArray;
+}
 
 // Clicking on easyButton
 
@@ -28,8 +45,8 @@ easyButton.addEventListener('click', () => {
 	document.querySelector('h1').style.background = colorPinkish;
 	statusText.textContent = "Let's play!";
 	boxCount = 3;
-	this.style.background = colorPinkish;
-	this.style.color = 'white';
+	this.style.background = 'white';
+	this.style.color = colorPinkish;
 	hardButton.style.background = colorPinkish;
 	hardButton.style.color = 'white';
 	colors = generateRandomColor(boxCount);
@@ -52,8 +69,8 @@ hardButton.addEventListener('click', () => {
 	document.querySelector('h1').style.background = colorPinkish;
 	statusText.textContent = "Let's play!";
 	boxCount = 6;
-	this.style.background = colorPinkish;
 	this.style.background = 'white';
+	this.style.background = colorPinkish;
 	easyButton.style.background = colorPinkish;
 	easyButton.style.color = 'white';
 	colors = generateRandomColor(boxCount);
@@ -103,13 +120,6 @@ function win() {
 function loose() {
 	span.style.background = 'aquamarin';
 	statusText.textContent = 'Try again!';
-}
-
-function generateRandomColor(number) {
-	let colorArray = [];
-	for (i = 0; i < number; i++) {
-		colorArray.push(randomColor());
-	}
 }
 
 function randomColor() {

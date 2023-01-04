@@ -33,7 +33,7 @@ h1 {
     font-weight: 900;
 }
 
-button {
+/* button {
     border: none;
     background: none;
     text-transform: uppercase;
@@ -42,7 +42,7 @@ button {
     font-weight: 700;
     letter-spacing: 1px;
     color: rgb(233, 119, 119)
-}
+} */
 
 .colorBoxes {
     width: 600px;
